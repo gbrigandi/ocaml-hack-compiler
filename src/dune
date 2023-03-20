@@ -1,0 +1,13 @@
+(ocamllex (modules lexer))
+(menhir (modules menhir_parser) (flags --dump))
+
+(library
+  (name hackasm)
+  (libraries
+    nice_parser
+    bitstring
+    base
+  )
+  (preprocess (pps ppx_jane))
+  (inline_tests)
+)
